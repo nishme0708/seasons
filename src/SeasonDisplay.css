@@ -1,0 +1,31 @@
+.left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container.summer {
+    background-color: orange;
+}
+.container.winter {
+    background: aliceblue;
+}
+
+.winter i {
+    color: blue;
+}
+.summer i {
+    color: red;
+}
