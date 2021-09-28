@@ -10,6 +10,8 @@ class App extends React.Component {
             lat: null,
             error: ''
         };
+    }
+    componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
             (pos) => {
                 console.log(pos);
@@ -22,13 +24,13 @@ class App extends React.Component {
         );
     }
     render() {
-        return (
-            <div>
-                Latitude: {this.state.lat}
-                <br />
-                Error: {this.state.error}
-            </div>
-        );
+        if (this.state.error) {
+            return <div>Error: {this.state.error}</div>;
+        }
+        if (this.state.lat) {
+            return <SeasonDisplay lat={this.state.lat}></SeasonDisplay>;
+        }
+        return <div>Loading...</div>;
     }
 }
 ReactDOM.render(<App />, document.querySelector('#root'));
